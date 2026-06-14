@@ -1,10 +1,13 @@
 # Decap CMS config for rawcode
-# Auth: Netlify Identity via Git Gateway
+# Auth: GitHub OAuth via Decap's hosted backend (or your own)
 
 backend:
-  name: git-gateway
+  name: github
   repo: maciekpodgurny/rawcode
   branch: main
+  # Domyślnie używa hostowanego OAuth od Decap: https://api.netlify.com/auth
+  # Jeśli wolisz własny OAuth proxy, odkomentuj:
+  # base_url: https://twoj-oauth-proxy.example.com
 
 # Lokalny tryb developerski (npx decap-server)
 local_backend: true

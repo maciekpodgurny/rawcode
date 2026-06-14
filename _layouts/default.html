@@ -10,10 +10,16 @@
 <body>
   <div class="wrap">
     <header class="site-header">
-      <a href="{{ '/' | relative_url }}" class="logo">&gt; rawcode_<span class="caret">|</span></a>
+      <a href="{{ '/' | relative_url }}" class="logo"><span class="logo-text">&gt; rawcode_</span><span class="caret">|</span></a>
       <nav>
         <a href="{{ '/' | relative_url }}">./index</a>
         <a href="{{ '/about/' | relative_url }}">./about</a>
+        <span class="theme-switch" title="motyw">
+          <button class="theme-dot" data-theme="matrix" aria-label="matrix"></button>
+          <button class="theme-dot" data-theme="amber" aria-label="amber"></button>
+          <button class="theme-dot" data-theme="ice" aria-label="ice"></button>
+          <button class="theme-dot" data-theme="blood" aria-label="blood"></button>
+        </span>
       </nav>
     </header>
 
@@ -22,9 +28,10 @@
     </main>
 
     <footer class="site-footer">
-      <span>// {{ site.title }} &mdash; {{ site.time | date: '%Y' }}</span>
+      <span><span class="pulse"></span>// {{ site.title }} &mdash; {{ site.time | date: '%Y' }}</span>
       <span>built raw. no trackers.</span>
     </footer>
   </div>
+  <script src="{{ '/assets/theme.js' | relative_url }}"></script>
 </body>
 </html>
