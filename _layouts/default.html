@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }} // {{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <a href="{{ '/' | relative_url }}" class="logo">&gt; rawcode_<span class="caret">|</span></a>
+      <nav>
+        <a href="{{ '/' | relative_url }}">./index</a>
+        <a href="{{ '/about/' | relative_url }}">./about</a>
+      </nav>
+    </header>
+
+    <main>
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <span>// {{ site.title }} &mdash; {{ site.time | date: '%Y' }}</span>
+      <span>built raw. no trackers.</span>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+# Decap CMS config for rawcode
+# Auth: GitHub OAuth via Decap's hosted backend (or your own)
+
+backend:
+  name: github
+  repo: maciekpodgurny/rawcode
+  branch: main
+  # Domyślnie używa hostowanego OAuth od Decap: https://api.netlify.com/auth
+  # Jeśli wolisz własny OAuth proxy, odkomentuj:
+  # base_url: https://twoj-oauth-proxy.example.com
+
+# Lokalny tryb developerski (npx decap-server)
+local_backend: true
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+publish_mode: simple
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    editor:
+      preview: false
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "Tytuł", name: "title", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Tagi", name: "tags", widget: "list", required: false, default: [] }
+      - { label: "Treść", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "about.md"
+        label: "About"
+        name: "about"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "default" }
+          - { label: "Tytuł", name: "title", widget: "string" }
+          - { label: "Permalink", name: "permalink", widget: "hidden", default: "/about/" }
+          - { label: "Treść", name: "body", widget: "markdown" }
